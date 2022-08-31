@@ -1,0 +1,53 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="frm-nicasia" action="/confirm/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+                <input type="hidden" name="access_key" value="{{ access_key }}">
+                <input type="hidden" name="profile_id" value="{{ profile_id }}">
+             
+                <input type="hidden" name="signed_field_names" value="access_key,profile_id,transaction_uuid,signed_field_names,unsigned_field_names,signed_date_time,locale,transaction_type,reference_number,amount,currency,payment_method,bill_to_forename,bill_to_surname,bill_to_email,bill_to_phone,bill_to_address_line1,bill_to_address_city,bill_to_address_state,bill_to_address_country,bill_to_address_postal_code,auth_trans_ref_no">
+                <input type="hidden" name="unsigned_field_names" value="card_type,card_number,card_expiry_date">
+                <input type="hidden" name="locale" value="en">
+           
+                <input type="hidden" name="transaction_uuid" value="{{ transaction_uuid }}"> 
+                <input type="hidden" name="signed_date_time" value="{{ signed_date_time }}">
+                <input type="text" name="transaction_type" value="sale" placeholder="transaction_type"><br>
+                <input type="hidden" name="reference_number" placeholder="reference_number" value="2345123124">
+                <input type="hidden" placeholder="amount" name="amount" value="1000.0"><br>
+                <input type="hidden" name="currency" value="NPR">
+                <input type="hidden" name="payment_method" value="card">
+                <input type="hidden" name="bill_to_forename" value="Rajim">
+                <input type="hidden" name="bill_to_surname" value="Ali">
+                <input type="hidden" name="bill_to_email" value="ali.rajim12@gmail.com">
+                <input type="hidden" name="bill_to_phone" value="9849428177">
+                <input type="hidden" name="bill_to_address_line1" value="Kathmandu">
+                <input type="hidden" name="bill_to_address_city" value="Kathmandu">
+                <input type="hidden" name="bill_to_address_state" value="Kathmandu">
+                <input type="hidden" name="bill_to_address_country" value="NP">
+                <input type="hidden" name="bill_to_address_postal_code" value="Kathmandu">
+             
+                
+              
+             
+               
+                <input type="hidden" name="card_type" value="001">
+                <input type="hidden" name="card_number" value="">
+                <input type="hidden" name="card_expiry_date" value=""> 
+                <input type="hidden" name="signature">
+                <input type="hidden" name="auth_trans_ref_no" value="">
+                <br>
+                <input type="submit">
+        </div>
+        </form>
+        
+</body>
+</html>
